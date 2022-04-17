@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    border: 2px solid red; max-width: 1200px; margin: 0 auto;
+    max-width: 1200px; margin: 0 auto;
     margin-top: 20px; padding: 20px; display: grid;
     grid-template-columns: repeat(3, 1fr);
 `;
 
 export const ContainerTable = styled.div`
-    border: 2px solid red; max-width: 1200px; margin: 0 auto;
+    max-width: 1200px; margin: 0 auto;
     margin-top: 30px; padding: 10px;
 `;
 

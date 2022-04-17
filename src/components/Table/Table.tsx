@@ -1,10 +1,18 @@
-import * as C from "./style";
+import * as C from "./Tabelas/Tabelas";
 
 function Table(){
+
+    let id = window.location.pathname.split("/");
+    console.log(id[2]);
+
     return(
-        <C.Container>
-            ....
-        </C.Container>
+        <>
+            {id[2] === "cliente" ? (
+                <C.TabelaCliente/>
+            ): id[2] === "categoria" ? (
+                <C.TabelaCategoria/>
+            ): ""}
+        </>
     );
 }
 
