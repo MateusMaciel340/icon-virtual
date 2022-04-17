@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    overflow-x:auto;
+`;
 
 export const Tabela = styled.table`
     font-family: Arial, Helvetica, sans-serif; border-collapse: collapse;
     width: 100%; text-align: center; margin-bottom: 10px;
+    border-collapse: collapse; border-spacing: 0;
     td, th{
         border: 1px solid #ddd;
         padding: 8px;

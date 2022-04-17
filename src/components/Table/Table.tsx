@@ -3,7 +3,6 @@ import * as C from "./Tabelas/Tabelas";
 function Table(){
 
     let id = window.location.pathname.split("/");
-    console.log(id[2]);
 
     return(
         <>
