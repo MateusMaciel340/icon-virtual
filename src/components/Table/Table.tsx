@@ -10,6 +10,8 @@ function Table(){
                 <C.TabelaCliente/>
             ): id[2] === "categoria" ? (
                 <C.TabelaCategoria/>
+            ): id[2] === "produto" ? (
+                <C.TabelaProduto/>
             ): ""}
         </>
     );

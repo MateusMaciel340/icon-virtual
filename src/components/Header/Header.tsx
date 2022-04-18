@@ -7,6 +7,16 @@ function Header(){
 
     const [opcao, setOpcao] = useState(opcoes);
 
+    const Sair = (event: any) =>{
+        window.localStorage.clear();
+
+        setTimeout(function(){
+            window.location.href = "/login";
+        },1000)
+    }
+
+    console.log(window.location.pathname);
+
     return(
         <C.Container>
             <C.Coluna>
@@ -16,6 +26,13 @@ function Header(){
                     </Link>
                 </C.Titulo>
             </C.Coluna>
+
+            {window.location.pathname !== "/login" ? (
+            <C.Coluna>
+                 <C.Botao
+                     onClick={Sair}>Sair</C.Botao>
+             </C.Coluna>
+            ): ""}
         </C.Container>
     );
 }

@@ -11,9 +11,10 @@ export const Titulo = styled.h2`
         color: #FFFFFF; text-decoration: none;
     }
 `;
-export const Botao = styled.div`
+export const Botao = styled.button`
     background-color: #5cb85c; padding: 10px 20px 10px 20px;
     font-weight: bold; border-radius: 5px; cursor: pointer;
+    border: none; font-size: 18px; color: #FFFFFF;
 `;
 
 export const Coluna = styled.div`
