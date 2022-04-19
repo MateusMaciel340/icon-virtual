@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0; margin: 0; box-sizing: border-box;
         font-family: "Poppins", sans-serif;
     }
+    label, button{
+        margin-top: 8px; margin-bottom: 10px;
+    }
 `;
 
 export const Container = styled.div`

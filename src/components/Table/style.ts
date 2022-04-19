@@ -27,7 +27,7 @@ export const Icone = styled.i<{ cor: string, }>`
 
 export const Paginacao = styled.div`
     display: flex; justify-content: space-between;
-    align-items: center;
+    align-items: center; margin-top: 20px;
 `;
 
 export const Coluna = styled.div`
