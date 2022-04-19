@@ -1,9 +1,16 @@
 import * as C from "../style";
-import { GetCliente , DeleteCliente} from "../../../services/cliente/api-consumo-cliente";
+
+import { GetCliente , UsuarioLogado, DeleteCliente} from "../../../services/cliente/api-consumo-cliente";
+
 import { GetCategoria, DeleteCategoria } from "../../../services/categoria/api-consumo-categoria";
+
 import { GetProduto, DeleteProduto } from "../../../services/produto/api-consumo-produto";
+
+import { GetFavorito } from "../../../services/favorito/api-consumo-favorito";
+
 import { useEffect, useState } from "react";
-import { GrupoClientes, GrupoCategorias, GrupoProdutos } from "../../../types/tipos-opcoes";
+
+import { GrupoClientes, GrupoCategorias, GrupoProdutos, GrupoFavoritos, GrupoClienteLogado } from "../../../types/tipos-opcoes";
 
 export function TabelaCliente(){
 
@@ -148,13 +155,25 @@ export function TabelaCategoria(){
 export function TabelaProduto(){
 
     const [produtos, setProduto] = useState<GrupoProdutos[]>([]);
+    const [favoritos, setFavoritos] = useState<GrupoFavoritos[]>([]);
+    const [usuarioLogado, setUsuarioLogado] = useState<GrupoClienteLogado[]>([]);
 
     const getProduto = async () => {
         const response = await GetProduto();
 
-        console.log(response);
-
         setProduto(response);
+    }
+
+    const getFavorito = async () => {
+        const response = await GetFavorito();
+
+        setFavoritos(response);
+    }
+
+    const getUsuario = async () => {
+        const response = await UsuarioLogado();
+
+        setUsuarioLogado(response);
     }
 
     const deleteProduto = async(id: number)=>{
@@ -166,7 +185,7 @@ export function TabelaProduto(){
     }
 
     useEffect(() => {
-        getProduto();
+        getProduto(); getFavorito(); getUsuario();
     })
 
     return(
@@ -180,17 +199,27 @@ export function TabelaProduto(){
                         <th>Preço do produto</th>
                         <th>Estoque do produto</th>
                         <th>Categoria do produto</th>
+                        <th>Favoritar</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {produtos.map((dado, index) => (
                         <tr>
-                            <td>{index+1}</td>
+                            <td>{dado.id_produto}</td>
                             <td>{dado.titulo_produto}</td>
                             <td>R$ {dado.preco_produto}</td>
                             <td>{dado.estoque_produto}</td>
                             <td>{dado.tb_categorium.titulo_categoria}</td>
+                            <td>
+                                {favoritos.filter(favorito => favorito.produto_id === dado.id_produto)
+                                .map((filterFavoritado => (
+                                    <C.Icone
+                                        className="fa fa-star"
+                                        cor="#FECE3F"
+                                    />
+                                )))}
+                            </td>
                             <td>
                                 <C.Icone 
                                     className="fa fa-edit" cor="#FECE3F"
