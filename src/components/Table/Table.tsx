@@ -1,4 +1,6 @@
-import * as C from "./Tabelas/Tabelas";
+import * as Categoria from "./Tabelas/TabelaCategoria";
+import * as Cliente from "./Tabelas/TabelaCliente";
+import * as Produto from "./Tabelas/TabelaProduto";
 
 function Table(){
 
@@ -7,11 +9,11 @@ function Table(){
     return(
         <>
             {id[2] === "cliente" ? (
-                <C.TabelaCliente/>
+                <Cliente.TabelaCliente/>
             ): id[2] === "categoria" ? (
-                <C.TabelaCategoria/>
+                <Categoria.TabelaCategoria/>
             ): id[2] === "produto" ? (
-                <C.TabelaProduto/>
+                <Produto.TabelaProduto/>
             ): ""}
         </>
     );

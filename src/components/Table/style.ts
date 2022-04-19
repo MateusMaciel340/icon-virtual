@@ -40,3 +40,8 @@ export const Coluna = styled.div`
         }
     }
 `;
+
+export const GrupoSeparacao = styled.div`
+    display: flex; justify-content: space-between; align-items: center;
+`
+export const GrupoColuna = styled.div``;
