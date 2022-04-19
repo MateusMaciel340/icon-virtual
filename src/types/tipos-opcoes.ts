@@ -19,3 +19,14 @@ export type GrupoProdutos = {
         titulo_categoria: string,
     }
 }
+
+export type GrupoFavoritos = {
+    id_favorito: number, status_favorito: string, cliente_id: number,
+    produto_id: number, tb_produto:{
+        id_produto: number,
+    }
+}
+
+export type GrupoClienteLogado = {
+    id_cliente: number,
+}

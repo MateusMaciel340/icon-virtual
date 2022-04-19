@@ -19,3 +19,13 @@ export const DeleteCliente = async(id: number) =>{
         return "Ocorreu algum erro";
     }
 }
+
+export const UsuarioLogado = async () => {
+    try{
+        const response = await api.get("/usuario-logado");
+
+        return response.data;
+    }catch(error){
+        return "Ocorreu um erro!";
+    }
+}
