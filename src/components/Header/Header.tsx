@@ -15,8 +15,6 @@ function Header(){
         },1000)
     }
 
-    console.log(window.location.pathname);
-
     return(
         <C.Container>
             <C.Coluna>
