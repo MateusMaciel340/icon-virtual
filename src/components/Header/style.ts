@@ -15,6 +15,7 @@ export const Botao = styled.button`
     background-color: #5cb85c; padding: 10px 20px 10px 20px;
     font-weight: bold; border-radius: 5px; cursor: pointer;
     border: none; font-size: 18px; color: #FFFFFF;
+    margin-top: 10px;
 `;
 
 export const Coluna = styled.div`
