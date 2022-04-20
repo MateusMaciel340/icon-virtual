@@ -2,7 +2,7 @@ import { GetCategoria, DeleteCategoria } from "../../../services/categoria/api-c
 import { useEffect, useState } from "react";
 import { GrupoCategorias } from "../../../types/tipos-opcoes";
 import * as C from "../style";
-import * as Estilo from "../../Header/style";
+import EditarCategoria from "../../Edit/EditarCategoria";
 
 import * as Postagem from "../../Post/PostagemCategoria";
 
@@ -47,8 +47,8 @@ export function TabelaCategoria(){
                             <td>{dado.titulo_categoria}</td>
                             <td>{dado.descricao_categoria}</td>
                             <td>
-                                <C.Icone 
-                                    className="fa fa-edit" cor="#FECE3F"
+                                <EditarCategoria
+                                    id_categoria={dado.id_categoria}
                                 />
                                 <C.Icone 
                                     className="fa fa-trash" cor="#F5574A"

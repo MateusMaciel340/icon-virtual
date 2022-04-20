@@ -1,19 +1,27 @@
 import { GetProduto, DeleteProduto } from "../../../services/produto/api-consumo-produto";
+import { GetFavorito } from "../../../services/favorito/api-consumo-favorito";
 import { useEffect, useState } from "react";
-import { GrupoProdutos } from "../../../types/tipos-opcoes";
+import { GrupoProdutos, GrupoFavoritos } from "../../../types/tipos-opcoes";
 import * as C from "../style";
-import * as Estilo from "../../Header/style";
 
 import * as Postagem from "../../Post/PostagemProduto";
+import EditarProduto from "../../Edit/EditarProduto";
 
 export function TabelaProduto(){
 
     const [produtos, setProduto] = useState<GrupoProdutos[]>([]);
+    const [favoritos, setFavorito] = useState<GrupoFavoritos[]>([])
 
     const getProduto = async () => {
         const response = await GetProduto();
 
         setProduto(response);
+    }
+
+    const getFavorito = async () => {
+        const response = await GetFavorito();
+
+        setFavorito(response);
     }
 
     const deleteProduto = async(id: number)=>{
@@ -25,8 +33,8 @@ export function TabelaProduto(){
     }
 
     useEffect(() => {
-        getProduto();
-    })
+        getProduto(); getFavorito();
+    },[])
 
     return(
         <C.Container>
@@ -55,8 +63,8 @@ export function TabelaProduto(){
                                 ....
                             </td>
                             <td>
-                                <C.Icone 
-                                    className="fa fa-edit" cor="#FECE3F"
+                                <EditarProduto
+                                    id_produto={dado.id_produto}
                                 />
                                 <C.Icone 
                                     className="fa fa-trash" cor="#F5574A"

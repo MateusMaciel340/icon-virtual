@@ -2,9 +2,9 @@ import { GetCliente, DeleteCliente} from "../../../services/cliente/api-consumo-
 import { useEffect, useState } from "react";
 import * as C from "../style";
 import { GrupoClientes } from "../../../types/tipos-opcoes";
-import * as Estilo from "../../Header/style";
 
 import * as Postagem from "../../Post/PostagemCliente";
+import EditarCliente from "../../Edit/EditarCliente";
 
 export function TabelaCliente(){
 
@@ -34,6 +34,7 @@ export function TabelaCliente(){
         <C.Tabela>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Endereço</th>
@@ -44,13 +45,14 @@ export function TabelaCliente(){
                 <tbody>
                     {clientes.map((dado, index) => (
                         <tr key={index}>
+                            <td>00{index+1}</td>
                             <td>{dado.nome_cliente}</td>
                             <td>{dado.email_cliente}</td>
                             <td>{dado.endereco_cliente}</td>
                             <td>{dado.telefone_cliente}</td>
                             <td>
-                                <C.Icone 
-                                    className="fa fa-edit" cor="#FECE3F"
+                                <EditarCliente
+                                    id_cliente={dado.id_cliente}
                                 />
                                 <C.Icone 
                                     className="fa fa-trash" cor="#F5574A"
